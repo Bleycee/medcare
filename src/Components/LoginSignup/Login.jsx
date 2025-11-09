@@ -70,7 +70,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="w-[430px] bg-white p-8 rounded-2xl shadow-lg">
+    <div className="w-full max-w-[430px] bg-white p-6 sm:p-8 rounded-2xl shadow-lg mx-auto">
       {/* HEADER */}
       <div className="flex justify-center mb-4">
         <h2 className="text-3xl font-semibold text-center">
