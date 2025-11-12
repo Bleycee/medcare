@@ -3,9 +3,11 @@ import { Navbar } from "./Navbar";
 import { Hero } from "./Hero";
 import { Activity, FileText, Zap, Users, AlertCircle} from 'lucide-react';
 import { Footer } from "../Footer";
+import { useNavigate } from 'react-router-dom';
 
 
 export const LandingPage = () => {
+  const navigate = useNavigate();
   return (
     
       <>
@@ -13,11 +15,10 @@ export const LandingPage = () => {
       <Hero />
       
       <section className="py-16 bg-gray-50">
-  <div className="max-w-7xl mx-auto px-6">
-    {/* Centered content container */}
-    <div className="max-w-4xl mx-auto">
+     <div className="max-w-7xl mx-auto px-6">    
+      <div className="max-w-4xl mx-auto">
       
-      {/* Text Content - Centered */}
+     
       <div className="text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
           THE CHALLENGE
@@ -29,7 +30,7 @@ export const LandingPage = () => {
           Patients with minor health concerns often show the severity of their symptoms, leading to overcrowding, long wait times and delayed care for those who need it most urgently.
         </p>
 
-        {/* Stats Grid - 2 columns on mobile, 4 columns on desktop */}
+        
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center p-4 bg-white rounded-lg shadow">
             <div className="text-3xl font-bold text-red-500 mb-2">70%</div>
@@ -187,7 +188,9 @@ export const LandingPage = () => {
           </div>
 
           <div className="text-center mt-12">
-            <button className="px-8 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition">
+            <button 
+            onClick={() => navigate('/login')}
+            className="px-8 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition">
               Try Our Smart Triage Now →
             </button>
           </div>

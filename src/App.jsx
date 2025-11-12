@@ -3,6 +3,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Login } from './Components/LoginSignup/Login';
 import { LandingPage } from './Components/LandingPage/LandingPage';
+import { Services } from './Components/Services';
+import { About } from './Components/About';
+import { Contact } from './Components/Contact';
 
 // 404 Page Component
 const NotFound = () => (
@@ -10,8 +13,9 @@ const NotFound = () => (
     <div className="text-center">
       <h1 className="text-6xl font-bold text-cyan-600 mb-4">404</h1>
       <p className="text-xl text-gray-700 mb-8">Page not found</p>
-      <a href="/" className="px-6 py-3 bg-cyan-600 text-white rounded-full hover:bg-cyan-700 transition">Go Home</a>
-        
+      <a href="/" className="px-6 py-3 bg-cyan-600 text-white rounded-full hover:bg-cyan-700 transition">
+        Go Home
+      </a>
     </div>
   </div>
 );
@@ -25,6 +29,15 @@ const App = () => {
 
         {/* Login/Sign Up Page */}
         <Route path="/login" element={<Login />} />
+
+        {/* Services Page */}
+        <Route path="/services" element={<Services />} />
+
+        {/* About Page */}
+        <Route path="/about" element={<About />} />
+
+        {/* Contact Page */}
+        <Route path="/contact" element={<Contact />} />
 
         {/* 404 Not Found */}
         <Route path="*" element={<NotFound />} />
