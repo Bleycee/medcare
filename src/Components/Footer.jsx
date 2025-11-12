@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">Medcare</h3>
+            <h3 className="text-2xl font-bold mb-4 text-teal-400">Medcare</h3>
             <p className="text-blue-100 mb-4">
               Your trusted healthcare partner providing quality medical services with
               compassion and excellence.
@@ -34,36 +34,37 @@ export const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-blue-100">
-              <li>
-                <a href="#home" className="hover:text-white transition-colors">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#blog" className="hover:text-white transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-white transition-colors">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </div>
+          
+            <div>
+  <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+  <ul className="space-y-2 text-blue-100">
+    <li>
+      <a href="/" className="hover:text-white transition-colors">
+        Home
+      </a>
+    </li>
+    <li>
+      <a href="/services" className="hover:text-white transition-colors">
+        Services
+      </a>
+    </li>
+    <li>
+      <a href="/about" className="hover:text-white transition-colors">
+        About Us
+      </a>
+    </li>
+    <li>
+      <a href="#blog" className="hover:text-white transition-colors">
+        Blog
+      </a>
+    </li>
+    <li>
+      <a href="/contact" className="hover:text-white transition-colors">
+        Contact Us
+      </a>
+    </li>
+  </ul>
+</div>
 
           {/* Our Services */}
           <div>
