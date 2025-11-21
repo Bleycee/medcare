@@ -25,7 +25,7 @@ export const Sidebar = ({
 
   const sidebarItems = [
     { id: 'home', label: 'Dashboard', icon: Home, path: '/dashboard' },
-    { id: 'chat', label: 'AI Assistant', icon: MessageSquare, path: '/chat', badge: 'New' },
+    { id: 'chat', label: 'AI Assistant', icon: MessageSquare, path: '/dashboard/chat', badge: 'New' },
     { id: 'assessment', label: 'New Assessment', icon: Activity, path: '/assessment' },
     { id: 'history', label: 'My History', icon: History, path: '/history' },
     { id: 'consultation', label: 'Book Consult', icon: Calendar, path: '/consultation' },
