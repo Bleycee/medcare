@@ -129,7 +129,7 @@ export const Login = () => {
     }, 100);
     
     // Navigate to dashboard (you'll need to create this route)
-    // setTimeout(() => navigate('/dashboard'), 200);
+    setTimeout(() => navigate('/dashboard'), 200);
     
   } catch (error) {
     setErrors({

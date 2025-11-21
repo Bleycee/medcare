@@ -6,6 +6,8 @@ import { LandingPage } from './Components/LandingPage/LandingPage';
 import { Services } from './Components/Services';
 import { About } from './Components/About';
 import { Contact } from './Components/Contact';
+import { Dashboard } from './Components/Dashboard/Dashboard';
+
 
 // 404 Page Component
 const NotFound = () => (
@@ -38,6 +40,10 @@ const App = () => {
 
         {/* Contact Page */}
         <Route path="/contact" element={<Contact />} />
+
+        {/* Dashboard Page */}
+         <Route path="/dashboard" element={<Dashboard />} />
+        
 
         {/* 404 Not Found */}
         <Route path="*" element={<NotFound />} />
