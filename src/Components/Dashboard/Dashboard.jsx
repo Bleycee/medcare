@@ -6,7 +6,7 @@ import { DashboardContent } from './DashboardContent';
 export const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
-  const [userName] = useState('Alex Abugu'); // TODO: Get from auth context
+  const [userName] = useState('Alex Abugu');
 
   const handleNavigate = (tabId) => {
     setActiveTab(tabId);
@@ -31,7 +31,7 @@ export const Dashboard = () => {
         userName={userName}
       />
 
-     {/* Main Content Area */}
+      {/* Main Content */}
       <div className="flex-1 flex flex-col lg:ml-64">
         <DashboardContent
           userName={userName}

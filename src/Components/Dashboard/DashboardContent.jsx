@@ -117,7 +117,7 @@ export const DashboardContent = ({ userName, onNavigate, onMenuClick }) => {
               <button
                 onClick={() => {
                   onNavigate('chat');
-                  navigate('/chat');
+                  navigate('/dashboard/chat');
                 }}
                 className="px-6 py-3 bg-blue-700 bg-opacity-50 text-white rounded-xl font-semibold hover:bg-opacity-70 transition inline-flex items-center justify-center space-x-2 backdrop-blur-sm border border-white border-opacity-20"
               >
