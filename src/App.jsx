@@ -8,6 +8,7 @@ import { About } from './Components/About';
 import { Contact } from './Components/Contact';
 import { Dashboard } from './Components/Dashboard/Dashboard';
 import Chat from './Components/Dashboard/AIChat/Chat';
+import Assessment from './Components/Dashboard/Assessment';
 
 
 // 404 Page Component
@@ -45,8 +46,11 @@ const App = () => {
         {/* Dashboard Page */}
          <Route path="/dashboard" element={<Dashboard />} />
 
-        AI Chat Page
+        {/* AI Chat Page */}
        <Route path="/dashboard/chat" element={<Chat />} />
+
+       {/* AI Assessment Page */}
+        <Route path="/dashboard/assessment" element={<Assessment />} />
         
 
         {/* 404 Not Found */}

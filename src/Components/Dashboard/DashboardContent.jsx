@@ -24,8 +24,8 @@ export const DashboardContent = ({ userName, onNavigate, onMenuClick }) => {
   const stats = [
     { label: 'Assessments', value: '12', icon: Activity, color: 'bg-blue-500', change: '+2 this week' },
     { label: 'Last Check', value: '2d ago', icon: Clock, color: 'bg-cyan-500', change: 'Feeling better' },
-    { label: 'Consultations', value: '3', icon: Calendar, color: 'bg-green-500', change: '1 upcoming' },
     { label: 'Health Score', value: '85%', icon: TrendingUp, color: 'bg-purple-500', change: '+5% this month' },
+    { label: 'Active Days', value: '28', icon: Calendar, color: 'bg-green-500', change: 'This month' },
   ];
 
   const recentAssessment = {
@@ -38,8 +38,8 @@ export const DashboardContent = ({ userName, onNavigate, onMenuClick }) => {
   };
 
   const upcomingReminders = [
-    { id: 1, text: 'Follow-up check recommended', time: 'Today', type: 'check' },
-    { id: 2, text: 'Upcoming consultation with Dr. Okafor', time: 'Tomorrow, 10:00 AM', type: 'appointment' },
+    { id: 1, text: 'Follow-up health check recommended', time: 'Today', type: 'check' },
+    { id: 2, text: 'Review your recent assessment results', time: 'Tomorrow', type: 'check' },
   ];
 
   const healthTip = {
@@ -101,13 +101,13 @@ export const DashboardContent = ({ userName, onNavigate, onMenuClick }) => {
               Hi {userName.split(' ')[0]}, How are you feeling today?
             </h2>
             <p className="text-blue-100 mb-6 max-w-2xl">
-              Your health is our priority. Start a new assessment or chat with our AI assistant for instant guidance.
+              Your health is our priority. Start a new assessment or chat with our support assistant for instant help.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={() => {
                   onNavigate('assessment');
-                  navigate('/assessment');
+                  navigate('/dashboard/assessment');
                 }}
                 className="px-6 py-3 bg-white text-blue-600 rounded-xl font-semibold hover:bg-gray-100 transition inline-flex items-center justify-center space-x-2 shadow-lg"
               >
@@ -122,7 +122,7 @@ export const DashboardContent = ({ userName, onNavigate, onMenuClick }) => {
                 className="px-6 py-3 bg-blue-700 bg-opacity-50 text-white rounded-xl font-semibold hover:bg-opacity-70 transition inline-flex items-center justify-center space-x-2 backdrop-blur-sm border border-white border-opacity-20"
               >
                 <MessageSquare className="w-5 h-5" />
-                <span>Chat with AI</span>
+                <span>Support Chat</span>
               </button>
             </div>
           </div>
@@ -199,7 +199,7 @@ export const DashboardContent = ({ userName, onNavigate, onMenuClick }) => {
                     <button
                       onClick={() => {
                         onNavigate('assessment');
-                        navigate('/assessment');
+                        navigate('/dashboard/assessment');
                       }}
                       className="text-blue-600 font-semibold hover:underline text-sm inline-flex items-center space-x-1"
                     >

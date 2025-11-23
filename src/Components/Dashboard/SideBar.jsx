@@ -4,7 +4,6 @@ import {
   MessageSquare,
   Activity, 
   History, 
-  Calendar, 
   Lightbulb,
   User,
   Settings,
@@ -25,10 +24,9 @@ export const Sidebar = ({
 
   const sidebarItems = [
     { id: 'home', label: 'Dashboard', icon: Home, path: '/dashboard' },
-    { id: 'chat', label: 'AI Assistant', icon: MessageSquare, path: '/dashboard/chat', badge: 'New' },
-    { id: 'assessment', label: 'New Assessment', icon: Activity, path: '/assessment' },
+    { id: 'assessment', label: 'Health Assessment', icon: Activity, path: '/dashboard/assessment' },
+    { id: 'chat', label: 'Support Chat', icon: MessageSquare, path: '/dashboard/chat' },
     { id: 'history', label: 'My History', icon: History, path: '/history' },
-    { id: 'consultation', label: 'Book Consult', icon: Calendar, path: '/consultation' },
     { id: 'tips', label: 'Health Tips', icon: Lightbulb, path: '/health-tips' },
     { id: 'profile', label: 'My Profile', icon: User, path: '/profile' },
   ];
