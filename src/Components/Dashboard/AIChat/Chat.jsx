@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  ArrowLeft, 
+ 
   Send, 
   MessageCircle,
   MoreVertical,
@@ -251,7 +251,7 @@ const Chat = () => {
             onClick={() => navigate('/dashboard')}
             className="p-2 hover:bg-gray-100 rounded-lg transition"
           >
-            <ArrowLeft className="w-6 h-6 text-gray-700" />
+            
           </button>
           
           <div className="flex items-center space-x-3">

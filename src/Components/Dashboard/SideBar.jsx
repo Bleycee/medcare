@@ -26,13 +26,13 @@ export const Sidebar = ({
     { id: 'home', label: 'Dashboard', icon: Home, path: '/dashboard' },
     { id: 'assessment', label: 'Health Assessment', icon: Activity, path: '/dashboard/assessment' },
     { id: 'chat', label: 'Support Chat', icon: MessageSquare, path: '/dashboard/chat' },
-    { id: 'history', label: 'My History', icon: History, path: '/history' },
-    { id: 'tips', label: 'Health Tips', icon: Lightbulb, path: '/health-tips' },
+    { id: 'history', label: 'My History', icon: History, path: '/dashboard/history' },
+    { id: 'tips', label: 'Health Tips', icon: Lightbulb, path: '/dashboard/healthtips' },
     { id: 'profile', label: 'My Profile', icon: User, path: '/profile' },
   ];
 
   const bottomSidebarItems = [
-    { id: 'help', label: 'Help & Support', icon: HelpCircle, path: '/help' },
+    { id: 'help', label: 'Help & Support', icon: HelpCircle, path: '/dashboard/helpPage' },
     { id: 'settings', label: 'Settings', icon: Settings, path: '/settings' },
   ];
 
@@ -52,7 +52,7 @@ export const Sidebar = ({
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex lg:flex-col lg:w-64 bg-white border-r border-gray-200 fixed h-full z-30">
         {/* Logo */}
-        <div className="p-6 border-b border-gray-200">
+        <div className="p-5 border-b border-gray-200">
           <h1 className="text-2xl font-bold text-cyan-600">MedCare</h1>
           <p className="text-xs text-gray-500 mt-1">Smart Health Assistant</p>
         </div>
