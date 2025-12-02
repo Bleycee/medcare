@@ -1,16 +1,19 @@
 // App.jsx
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Login } from './Components/LoginSignup/Login';
-import { LandingPage } from './Components/LandingPage/LandingPage';
-import { Services } from './Components/Services';
-import { About } from './Components/About';
-import { Contact } from './Components/Contact';
-import { Dashboard } from './Components/Dashboard/Dashboard';
-import Chat from './Components/Dashboard/AIChat/Chat';
-import Assessment from './Components/Dashboard/Assessment';
-import Profile from './Components/Dashboard/Profile';
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Login } from "./Components/LoginSignup/Login";
+import { LandingPage } from "./Components/LandingPage/LandingPage";
+import { Services } from "./Components/Services";
+import { About } from "./Components/About";
+import { Contact } from "./Components/Contact";
+import { Dashboard } from "./Components/Dashboard/Dashboard";
+import { DashboardLayout } from "./Components/Dashboard/DashboardLayout";
+import Chat from "./Components/Dashboard/AIChat/Chat";
+import Assessment from "./Components/Dashboard/Assessment";
+import Profile from "./Components/Dashboard/Profile";
+import { HelpPage } from "./Components/Dashboard/HelpPage";
+import { HealthTips } from "./Components/Dashboard/HealthTips";
+import { History } from "./Components/Dashboard/History";
 
 // 404 Page Component
 const NotFound = () => (
@@ -18,7 +21,10 @@ const NotFound = () => (
     <div className="text-center">
       <h1 className="text-6xl font-bold text-cyan-600 mb-4">404</h1>
       <p className="text-xl text-gray-700 mb-8">Page not found</p>
-      <a href="/" className="px-6 py-3 bg-cyan-600 text-white rounded-full hover:bg-cyan-700 transition">
+      <a
+        href="/"
+        className="px-6 py-3 bg-cyan-600 text-white rounded-full hover:bg-cyan-700 transition"
+      >
         Go Home
       </a>
     </div>
@@ -45,16 +51,60 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
 
         {/* Dashboard Page */}
-         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
 
         {/* AI Chat Page */}
-       <Route path="/dashboard/chat" element={<Chat />} />
-
-       {/* AI Assessment Page */}
-        <Route path="/dashboard/assessment" element={<Assessment />} />
+        <Route
+          path="/dashboard/chat"
+          element={
+            <DashboardLayout activeTab="chat">
+              <Chat />
+            </DashboardLayout>
+          }
+        />
+        {/* AI Assessment Page */}
+        <Route
+          path="/dashboard/assessment"
+          element={
+            <DashboardLayout activeTab="assessment">
+              <Assessment />
+            </DashboardLayout>
+          }
+        />
 
         {/* Profile Page */}
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/profile"
+          element={
+            <DashboardLayout activeTab="profile">
+              <Profile />
+            </DashboardLayout>
+          }
+        />
+        <Route
+          path="/dashboard/helpPage"
+          element={
+            <DashboardLayout activeTab="help">
+              <HelpPage />
+            </DashboardLayout>
+          }
+        />
+        <Route
+          path="/dashboard/healthtips"
+          element={
+            <DashboardLayout activeTab="tips">
+              <HealthTips />
+            </DashboardLayout>
+          }
+        />
+        <Route
+          path="/dashboard/history"
+          element={
+          <DashboardLayout activeTab="history" >
+              <History />
+          </DashboardLayout>
+          }
+              />
         
 
         {/* 404 Not Found */}
