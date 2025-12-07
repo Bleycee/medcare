@@ -62,7 +62,7 @@ export const History = () => {
 
   return (
     <div className="p-4 sm:p-8 md:p-10 min-h-full">
-      <h1 className="text-xl font-bold text-gray-600 mb-1">MY HISTORY</h1>
+      
       <p className="text-3xl font-extrabold text-gray-900 mb-6">
         Past Health Assessments & Records
       </p>

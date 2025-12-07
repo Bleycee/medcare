@@ -1,39 +1,64 @@
-import React from 'react';
-import { 
+import React from "react";
+import {
   Home,
   MessageSquare,
-  Activity, 
-  History, 
+  Activity,
+  History,
   Lightbulb,
   User,
   Settings,
   HelpCircle,
   LogOut,
-  X
-} from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+  X,
+} from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-export const Sidebar = ({ 
-  isOpen, 
-  onClose, 
-  activeTab, 
+export const Sidebar = ({
+  isOpen,
+  onClose,
+  activeTab,
   onNavigate,
-  userName 
+  userName,
 }) => {
   const navigate = useNavigate();
 
   const sidebarItems = [
-    { id: 'home', label: 'Dashboard', icon: Home, path: '/dashboard' },
-    { id: 'assessment', label: 'Health Assessment', icon: Activity, path: '/dashboard/assessment' },
-    { id: 'chat', label: 'Support Chat', icon: MessageSquare, path: '/dashboard/chat' },
-    { id: 'history', label: 'My History', icon: History, path: '/dashboard/history' },
-    { id: 'tips', label: 'Health Tips', icon: Lightbulb, path: '/dashboard/healthtips' },
-    { id: 'profile', label: 'My Profile', icon: User, path: '/profile' },
+    { id: "home", label: "Dashboard", icon: Home, path: "/dashboard" },
+    {
+      id: "assessment",
+      label: "Health Assessment",
+      icon: Activity,
+      path: "/dashboard/assessment",
+    },
+    {
+      id: "chat",
+      label: "Support Chat",
+      icon: MessageSquare,
+      path: "/dashboard/chat",
+    },
+    {
+      id: "history",
+      label: "My History",
+      icon: History,
+      path: "/dashboard/history",
+    },
+    {
+      id: "tips",
+      label: "Health Tips",
+      icon: Lightbulb,
+      path: "/dashboard/healthtips",
+    },
+    { id: "profile", label: "My Profile", icon: User, path: "/profile" },
   ];
 
   const bottomSidebarItems = [
-    { id: 'help', label: 'Help & Support', icon: HelpCircle, path: '/dashboard/helpPage' },
-    { id: 'settings', label: 'Settings', icon: Settings, path: '/settings' },
+    {
+      id: "help",
+      label: "Help & Support",
+      icon: HelpCircle,
+      path: "/dashboard/helpPage",
+    },
+    { id: "settings", label: "Settings", icon: Settings, path: "/dashboard/settings" },
   ];
 
   const handleNavigation = (path, id) => {
@@ -44,7 +69,7 @@ export const Sidebar = ({
 
   const handleLogout = () => {
     // TODO: Clear auth
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
@@ -52,9 +77,8 @@ export const Sidebar = ({
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex lg:flex-col lg:w-64 bg-white border-r border-gray-200 fixed h-full z-30">
         {/* Logo */}
-        <div className="p-5 border-b border-gray-200">
+        <div className="p-5 border-b border-gray-200 h-[73px]">
           <h1 className="text-2xl font-bold text-cyan-600">MedCare</h1>
-          <p className="text-xs text-gray-500 mt-1">Smart Health Assistant</p>
         </div>
 
         {/* Navigation */}
@@ -69,12 +93,18 @@ export const Sidebar = ({
                     onClick={() => handleNavigation(item.path, item.id)}
                     className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all ${
                       isActive
-                        ? 'bg-cyan-50 text-cyan-600 font-semibold'
-                        : 'text-gray-700 hover:bg-gray-50'
+                        ? "bg-cyan-50 text-cyan-600 font-semibold"
+                        : "text-gray-700 hover:bg-gray-50"
                     }`}
                   >
-                    <IconComponent className={`w-5 h-5 ${isActive ? 'text-cyan-600' : 'text-gray-400'}`} />
-                    <span className="flex-1 text-left text-sm">{item.label}</span>
+                    <IconComponent
+                      className={`w-5 h-5 ${
+                        isActive ? "text-cyan-600" : "text-gray-400"
+                      }`}
+                    />
+                    <span className="flex-1 text-left text-sm">
+                      {item.label}
+                    </span>
                     {item.badge && (
                       <span className="px-2 py-0.5 bg-green-500 text-white text-xs rounded-full">
                         {item.badge}
@@ -87,18 +117,31 @@ export const Sidebar = ({
           </ul>
 
           {/* Bottom Navigation */}
+
           <div className="mt-auto pt-4 border-t border-gray-200 px-3">
             <ul className="space-y-1">
               {bottomSidebarItems.map((item) => {
                 const IconComponent = item.icon;
+                const isActive = location.pathname === item.path; // ✅ Now works!
+
                 return (
                   <li key={item.id}>
                     <button
                       onClick={() => handleNavigation(item.path, item.id)}
-                      className="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition-all"
+                      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all ${
+                        isActive
+                          ? "bg-cyan-50 text-cyan-600 font-semibold"
+                          : "text-gray-700 hover:bg-gray-50"
+                      }`}
                     >
-                      <IconComponent className="w-5 h-5 text-gray-400" />
-                      <span className="flex-1 text-left text-sm">{item.label}</span>
+                      <IconComponent
+                        className={`w-5 h-5 ${
+                          isActive ? "text-cyan-600" : "text-gray-400"
+                        }`}
+                      />
+                      <span className="flex-1 text-left text-sm">
+                        {item.label}
+                      </span>
                     </button>
                   </li>
                 );
@@ -114,7 +157,9 @@ export const Sidebar = ({
               {userName.charAt(0)}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold text-gray-800 truncate">{userName}</p>
+              <p className="text-sm font-semibold text-gray-800 truncate">
+                {userName}
+              </p>
               <p className="text-xs text-gray-500 truncate">Premium Member</p>
             </div>
           </div>
@@ -131,7 +176,7 @@ export const Sidebar = ({
       {/* Mobile Sidebar */}
       <aside
         className={`fixed inset-y-0 left-0 w-64 bg-white border-r border-gray-200 z-50 transform transition-transform duration-300 lg:hidden ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+          isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
@@ -155,12 +200,18 @@ export const Sidebar = ({
                     onClick={() => handleNavigation(item.path, item.id)}
                     className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all ${
                       isActive
-                        ? 'bg-cyan-50 text-cyan-600 font-semibold'
-                        : 'text-gray-700 hover:bg-gray-50'
+                        ? "bg-cyan-50 text-cyan-600 font-semibold"
+                        : "text-gray-700 hover:bg-gray-50"
                     }`}
                   >
-                    <IconComponent className={`w-5 h-5 ${isActive ? 'text-cyan-600' : 'text-gray-400'}`} />
-                    <span className="flex-1 text-left text-sm">{item.label}</span>
+                    <IconComponent
+                      className={`w-5 h-5 ${
+                        isActive ? "text-cyan-600" : "text-gray-400"
+                      }`}
+                    />
+                    <span className="flex-1 text-left text-sm">
+                      {item.label}
+                    </span>
                     {item.badge && (
                       <span className="px-2 py-0.5 bg-green-500 text-white text-xs rounded-full">
                         {item.badge}
@@ -183,7 +234,9 @@ export const Sidebar = ({
                       className="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition-all"
                     >
                       <IconComponent className="w-5 h-5 text-gray-400" />
-                      <span className="flex-1 text-left text-sm">{item.label}</span>
+                      <span className="flex-1 text-left text-sm">
+                        {item.label}
+                      </span>
                     </button>
                   </li>
                 );
@@ -198,7 +251,9 @@ export const Sidebar = ({
               {userName.charAt(0)}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold text-gray-800 truncate">{userName}</p>
+              <p className="text-sm font-semibold text-gray-800 truncate">
+                {userName}
+              </p>
               <p className="text-xs text-gray-500 truncate">Premium Member</p>
             </div>
           </div>

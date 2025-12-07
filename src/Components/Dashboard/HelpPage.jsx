@@ -75,8 +75,8 @@ export const HelpPage = () => {
     <div className="p-4 sm:p-8 md:p-10 min-h-full">
       {/* 1. Header and Search Area */}
       <div className="mb-10">
-        <h1 className="text-xl font-bold text-gray-600 mb-1">HELP & SUPPORT</h1>
-        <p className="text-3xl font-extrabold text-gray-900 mb-6">
+        
+        <p className="text-3xl font-bold text-gray-900 mb-6">
           Find answers to common questions
         </p>
 
@@ -107,7 +107,7 @@ export const HelpPage = () => {
         <p className="text-sm text-gray-500">
           Can't find what you're looking for? Try the{" "}
           <button
-            className="text-cyan-600 hover:text-cyan-700 font-medium inline-flex items-center space-x-1" // Use flex to align icon and text
+            className="text-cyan-600 hover:text-cyan-700 font-large inline-flex items-center space-x-1" // Use flex to align icon and text
             onClick={() => navigate("/dashboard/chat")}
           >
             <Bot className="w-4 h-4" />{" "}
