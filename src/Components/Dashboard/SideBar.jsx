@@ -11,7 +11,7 @@ import {
   LogOut,
   X,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom"; // ✅ ADD useLocation
 
 export const Sidebar = ({
   isOpen,
@@ -21,6 +21,7 @@ export const Sidebar = ({
   userName,
 }) => {
   const navigate = useNavigate();
+  const location = useLocation(); // ✅ ADD THIS LINE
 
   const sidebarItems = [
     { id: "home", label: "Dashboard", icon: Home, path: "/dashboard" },
@@ -58,7 +59,12 @@ export const Sidebar = ({
       icon: HelpCircle,
       path: "/dashboard/helpPage",
     },
-    { id: "settings", label: "Settings", icon: Settings, path: "/dashboard/settings" },
+    {
+      id: "settings",
+      label: "Settings",
+      icon: Settings,
+      path: "/dashboard/settings",
+    },
   ];
 
   const handleNavigation = (path, id) => {
@@ -77,8 +83,12 @@ export const Sidebar = ({
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex lg:flex-col lg:w-64 bg-white border-r border-gray-200 fixed h-full z-30">
         {/* Logo */}
-        <div className="p-5 border-b border-gray-200 h-[73px]">
-          <h1 className="text-2xl font-bold text-cyan-600">MedCare</h1>
+        <div className="h-16 px-5 border-b border-gray-200 flex items-center">
+          <img
+            src="/images/Logo.png"
+            alt="MedCare Logo"
+            className="h-10 w-auto"
+          />
         </div>
 
         {/* Navigation */}
@@ -86,7 +96,7 @@ export const Sidebar = ({
           <ul className="space-y-1 px-3">
             {sidebarItems.map((item) => {
               const IconComponent = item.icon;
-              const isActive = activeTab === item.id;
+              const isActive = location.pathname === item.path; // ✅ NOW WORKS!
               return (
                 <li key={item.id}>
                   <button
@@ -117,12 +127,11 @@ export const Sidebar = ({
           </ul>
 
           {/* Bottom Navigation */}
-
           <div className="mt-auto pt-4 border-t border-gray-200 px-3">
             <ul className="space-y-1">
               {bottomSidebarItems.map((item) => {
                 const IconComponent = item.icon;
-                const isActive = location.pathname === item.path; // ✅ Now works!
+                const isActive = location.pathname === item.path; // ✅ NOW WORKS!
 
                 return (
                   <li key={item.id}>
@@ -181,8 +190,11 @@ export const Sidebar = ({
       >
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-cyan-600">MedCare</h1>
-            <p className="text-xs text-gray-500 mt-1">Smart Health Assistant</p>
+            <img
+              src="/images/Logo.png"
+              alt="MedCare Logo"
+              className="h-8 w-auto"
+            />
           </div>
           <button onClick={onClose}>
             <X className="w-6 h-6 text-gray-500" />
@@ -193,7 +205,7 @@ export const Sidebar = ({
           <ul className="space-y-1 px-3">
             {sidebarItems.map((item) => {
               const IconComponent = item.icon;
-              const isActive = activeTab === item.id;
+              const isActive = location.pathname === item.path; // ✅ NOW WORKS!
               return (
                 <li key={item.id}>
                   <button
@@ -227,13 +239,22 @@ export const Sidebar = ({
             <ul className="space-y-1">
               {bottomSidebarItems.map((item) => {
                 const IconComponent = item.icon;
+                const isActive = location.pathname === item.path; // ✅ NOW WORKS!
                 return (
                   <li key={item.id}>
                     <button
                       onClick={() => handleNavigation(item.path, item.id)}
-                      className="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-50 transition-all"
+                      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all ${
+                        isActive
+                          ? "bg-cyan-50 text-cyan-600 font-semibold"
+                          : "text-gray-700 hover:bg-gray-50"
+                      }`}
                     >
-                      <IconComponent className="w-5 h-5 text-gray-400" />
+                      <IconComponent
+                        className={`w-5 h-5 ${
+                          isActive ? "text-cyan-600" : "text-gray-400"
+                        }`}
+                      />
                       <span className="flex-1 text-left text-sm">
                         {item.label}
                       </span>
