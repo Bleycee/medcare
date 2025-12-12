@@ -109,7 +109,7 @@ export const DashboardContent = ({ userName, onNavigate, onMenuClick }) => {
             {/* Right Side - Notifications & Profile */}
             <div className="flex items-center space-x-4">
               <button
-                onClick={() => navigate("/dashboard/notificationpage")}
+                onClick={() => navigate("/dashboard/notifications")}
                 className="relative p-2 rounded-lg hover:bg-gray-100 transition"
               >
                 <Bell className="w-6 h-6 text-gray-700" />
@@ -203,7 +203,7 @@ export const DashboardContent = ({ userName, onNavigate, onMenuClick }) => {
               <button
                 onClick={() => {
                   onNavigate("history");
-                  navigate("/history");
+                  navigate("/dashboard/history");
                 }}
                 className="text-cyan-600 hover:text-cyan-700 font-semibold text-sm flex items-center space-x-1"
               >
@@ -289,7 +289,12 @@ export const DashboardContent = ({ userName, onNavigate, onMenuClick }) => {
                 </div>
               ))}
             </div>
-            <button className="w-full mt-4 py-2 text-cyan-600 hover:bg-cyan-50 rounded-lg transition text-sm font-semibold">
+            <button 
+            onClick={() => {
+                  onNavigate("tips");
+                  navigate("/dashboard/notifications");
+                }}
+            className="w-full mt-4 py-2 text-cyan-600 hover:bg-cyan-50 rounded-lg transition text-sm font-semibold">
               View All Reminders
             </button>
           </div>
@@ -317,7 +322,7 @@ export const DashboardContent = ({ userName, onNavigate, onMenuClick }) => {
               <button
                 onClick={() => {
                   onNavigate("tips");
-                  navigate("/health-tips");
+                  navigate("/dashboard/healthtips");
                 }}
                 className="text-teal-600 hover:text-teal-700 font-semibold text-sm inline-flex items-center space-x-1"
               >

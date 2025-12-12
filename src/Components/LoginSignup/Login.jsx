@@ -103,7 +103,7 @@ export const Login = () => {
 
     // TODO: Replace with actual API call
     // const response = await fetch('/api/auth/login', {
-    //   method: 'POST',
+    //   method: 'POST',n
     //   headers: { 'Content-Type': 'application/json' },
     //   body: JSON.stringify({ email: formData.email, password: formData.password })
     // });

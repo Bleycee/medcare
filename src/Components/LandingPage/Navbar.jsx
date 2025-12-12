@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Contact Us', path: '/contact' },
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "About Us", path: "/about" },
+    { name: "Contact Us", path: "/contact" },
   ];
 
   const handleNavigation = (path) => {
@@ -22,12 +22,12 @@ export const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <h1 
-          className="text-2xl font-bold text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+        <img
+          src="/images/Logo.png"
+          alt="MedCare Logo"
+          className="h-8 w-auto"
           onClick={() => navigate('/')}
-        >
-          MedCare
-        </h1>
+        />
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-gray-700 font-medium items-center">
@@ -43,7 +43,7 @@ export const Navbar = () => {
           ))}
           <li>
             <button
-              onClick={() => navigate('/login')}
+              onClick={() => navigate("/login")}
               className="px-6 py-2 rounded-full bg-cyan-600 text-white hover:bg-cyan-700 transition-all hover:shadow-lg"
             >
               Get Started
@@ -55,7 +55,7 @@ export const Navbar = () => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded p-2"
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -78,7 +78,7 @@ export const Navbar = () => {
             ))}
             <li>
               <button
-                onClick={() => handleNavigation('/login')}
+                onClick={() => handleNavigation("/login")}
                 className="px-6 py-2 rounded-full bg-cyan-600 text-white hover:bg-cyan-700 transition-all"
               >
                 Get Started

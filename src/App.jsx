@@ -14,7 +14,8 @@ import Profile from "./Components/Dashboard/Profile";
 import { HelpPage } from "./Components/Dashboard/HelpPage";
 import { HealthTips } from "./Components/Dashboard/HealthTips";
 import { History } from "./Components/Dashboard/History";
-// import { Settings } from "./Components/Dashboard/Settings";
+import {Settings}  from "./Components/Dashboard/Settings";
+import NotificationPage from "./Components/Dashboard/NotificationPage";
 
 
 // 404 Page Component
@@ -107,25 +108,24 @@ const App = () => {
             </DashboardLayout>
           }
         />
-        {/* <Route
+         <Route
           path="/dashboard/settings"
           element={
             <DashboardLayout activeTab="settings">
               <Settings />
             </DashboardLayout>
           }
-        /> */}
+        />
         
-        {/* <Route
-          path="/dashboard/notificationpage"
+          {/* Notification Page - ✅ ADDED */}
+        <Route
+          path="/dashboard/notifications"
           element={
-            <ProtectedRoute>
-              <DashboardLayout activeTab="notifications">
-                <NotificationPage onMenuClick={() => setSidebarOpen(true)} />
-              </DashboardLayout>
-            </ProtectedRoute>
+            <DashboardLayout activeTab="notifications">
+              <NotificationPage />
+            </DashboardLayout>
           }
-        /> */}
+        />
 
         {/* 404 Not Found */}
         <Route path="*" element={<NotFound />} />
